@@ -1,15 +1,14 @@
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
-import { B005, B015, B032, S200, S300 } from "../colours";
+import { B005, B032 } from "../colours";
 
 const BarContainer = styled.div`
   background: ${B005};
   padding: calc(2px + 0.75vw) calc(2px + 0.25vw) calc(2px + 0.75vw)
     calc(2px + 0.25vw);
   display: flex;
-  border-radius: 7%;
+  border-radius: 10px;
   flex-direction: row;
-  width: calc(150px + 30vw);
+  width: calc(60px + 10vw);
   margin: 0.5vw;
 `;
 
@@ -42,9 +41,7 @@ function NavigationBar() {
   return (
     <BarContainer>
       <NavButton to="/" text="Home" />
-      <NavButton to="/browse" text="Browse Decks" />
-      <NavButton to="/create" text="Create Deck" />
-      <NavButton to="/courses" text="My Courses" />
+      <NavButton to="/decks" text="Decks" />
     </BarContainer>
   );
 }

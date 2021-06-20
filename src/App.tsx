@@ -3,9 +3,10 @@ import styled from "@emotion/styled";
 import { B004, B005, P200, P500 } from "./colours";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import HomePage from "./page-components/home";
-import CreatePage from "./page-components/create";
 import { forwardRef } from "react";
 import NavigationBar from "./common-components/navbar";
+import DeckHomePage from "./page-components/deck";
+import CreateDeckPage from "./page-components/deck/create-deck";
 
 const WebsiteArea = styled.div`
   position: fixed;
@@ -30,9 +31,8 @@ const AppArea = styled.div`
   border-radius: 20px;
   flex-grow: 1;
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const TitleContainer = styled.div`
@@ -61,8 +61,15 @@ const SubtitleFormatter = styled.div`
 `;
 
 const InnerAppArea = styled.div`
+  padding: 15px 15px 15px 15px;
+  margin: 15px;
   display: flex;
+  border-radius: 20px;
   flex-direction: column;
+  max-height: 100%;
+  align-self: stretch;
+  align-items: center;
+  flex-grow: 1;
 `;
 
 const TitleComponent = forwardRef((props, _) => (
@@ -83,15 +90,18 @@ function App() {
           <AppArea>
             <InnerAppArea>
               <Switch>
-                <Route path="/create">
-                  <CreatePage />
+                <Route path="/decks/create">
+                  <CreateDeckPage />
+                </Route>
+                <Route path="/decks">
+                  <DeckHomePage />
                 </Route>
                 <Route path="/">
                   <HomePage />
                 </Route>
               </Switch>
-              <NavigationBar />
             </InnerAppArea>
+            <NavigationBar />
           </AppArea>
         </PageArea>
       </WebsiteArea>
